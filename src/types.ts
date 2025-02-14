@@ -107,42 +107,33 @@ export type FixTransaction = {
 };
 
 export type Filter = {
+  id?: string;
   currency?: string;
-  address?: string;
-  extraId?: string;
+  payoutAddress?: string;
   limit?: number;
   offset?: number;
 };
 
 export type TransactionDetail = {
   id: string;
-  createdAt: number;
-  type: string;
-  moneyReceived: number;
-  moneySent: number;
-  rate: string;
-  payinConfirmations: string;
   status: string;
   currencyFrom: string;
   currencyTo: string;
+  payinHash: string;
+  payoutHash: string;
+  refundHash: string | null;
   payinAddress: string;
-  payinExtraId: null | string;
-  payinExtraIdName: null | string;
-  payinHash: null | string;
-  amountExpectedFrom: string;
+  payinExtraId: string | null;
   payoutAddress: string;
-  payoutExtraId: null | string;
-  payoutExtraIdName: null | string;
-  payoutHash: null | string;
-  refundHash: null | string;
+  payoutExtraId: string | null;
+  amountExpectedFrom: string;
+  amountExpectedTo: string;
   amountFrom: string;
   amountTo: string;
-  amountExpectedTo: string;
+  refundReason: string | null;
   networkFee: string;
-  changellyFee: string;
-  apiExtraFee: string;
-  totalFee: null | string;
-  fiatProviderId: null | string;
-  fiatProvider: null | string;
-  fiatProviderRedirect: null | string;
+  createdAt: number;
+  duration: number;
+  transactionType: "fix" | "float";
+  payinSenders: string[];
 };
