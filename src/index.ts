@@ -10,7 +10,8 @@ import {
   FloatTransaction,
   FixTransaction,
   Filter,
-  FloatExchangeAmount
+  FloatExchangeAmount,
+  TransactionDetail
 } from './types';
 
 export class Changelly {
@@ -148,7 +149,7 @@ export class Changelly {
   /**
    * Returns an array of all transactions or a filtered list of transactions
    */
-  async getTransactions(filter: Filter) {
+  async getTransactions(filter: Filter): Promise<Array<TransactionDetail>> {
     return await this.postAPI('getTransactions', filter);
   }
 
