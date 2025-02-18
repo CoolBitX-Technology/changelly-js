@@ -1,13 +1,13 @@
-export declare type Pair = {
+export type Pair = {
     from: string;
     to: string;
 };
-export declare type PairWithAmount = {
+export type PairWithAmount = {
     from: string;
     to: string;
     amountFrom: string;
 };
-export declare type PairParam = {
+export type PairParam = {
     from: string;
     to: string;
     minAmountFloat: string;
@@ -15,7 +15,7 @@ export declare type PairParam = {
     minAmountFixed: string;
     maxAmountFixed: string;
 };
-export declare type Currency = {
+export type Currency = {
     name: string;
     ticker: string;
     fullName: string;
@@ -28,7 +28,7 @@ export declare type Currency = {
     image: string;
     fixedTime: number;
 };
-export declare type FixRate = {
+export type FixRate = {
     id: string;
     result: string;
     from: string;
@@ -40,7 +40,7 @@ export declare type FixRate = {
     minFrom: string;
     minTo: string;
 };
-export declare type FixRateWithAmount = {
+export type FixRateWithAmount = {
     id: string;
     rate: string;
     from: string;
@@ -48,7 +48,7 @@ export declare type FixRateWithAmount = {
     amountFrom: string;
     amountTo: string;
 };
-export declare type FloatExchangeAmount = {
+export type FloatExchangeAmount = {
     from: string;
     to: string;
     networkFee: string;
@@ -58,7 +58,7 @@ export declare type FloatExchangeAmount = {
     rate: string;
     fee: string;
 };
-export declare type FloatTransaction = {
+export type FloatTransaction = {
     id: string;
     apiExtraFee: string;
     changellyFee: string;
@@ -77,7 +77,7 @@ export declare type FloatTransaction = {
     createdAt: string;
     kycRequired: boolean;
 };
-export declare type FixTransaction = {
+export type FixTransaction = {
     id: string;
     apiExtraFee: string;
     changellyFee: string;
@@ -97,42 +97,33 @@ export declare type FixTransaction = {
     createdAt: string;
     kycRequired: boolean;
 };
-export declare type Filter = {
+export type Filter = {
+    id?: string;
     currency?: string;
-    address?: string;
-    extraId?: string;
+    payoutAddress?: string;
     limit?: number;
     offset?: number;
 };
-export declare type TransactionDetail = {
+export type TransactionDetail = {
     id: string;
-    createdAt: number;
-    type: string;
-    moneyReceived: number;
-    moneySent: number;
-    rate: string;
-    payinConfirmations: string;
     status: string;
     currencyFrom: string;
     currencyTo: string;
+    payinHash: string;
+    payoutHash: string;
+    refundHash: string | null;
     payinAddress: string;
-    payinExtraId: null | string;
-    payinExtraIdName: null | string;
-    payinHash: null | string;
-    amountExpectedFrom: string;
+    payinExtraId: string | null;
     payoutAddress: string;
-    payoutExtraId: null | string;
-    payoutExtraIdName: null | string;
-    payoutHash: null | string;
-    refundHash: null | string;
+    payoutExtraId: string | null;
+    amountExpectedFrom: string;
+    amountExpectedTo: string;
     amountFrom: string;
     amountTo: string;
-    amountExpectedTo: string;
+    refundReason: string | null;
     networkFee: string;
-    changellyFee: string;
-    apiExtraFee: string;
-    totalFee: null | string;
-    fiatProviderId: null | string;
-    fiatProvider: null | string;
-    fiatProviderRedirect: null | string;
+    createdAt: number;
+    duration: number;
+    transactionType: "fix" | "float";
+    payinSenders: string[];
 };
