@@ -1,4 +1,4 @@
-import { Pair, PairWithAmount, PairParam, FixRateWithAmount, FixRate, Currency, FloatTransaction, FixTransaction, Filter, FloatExchangeAmount } from './types';
+import { Pair, PairWithAmount, PairParam, FixRateWithAmount, FixRate, Currency, FloatTransaction, FixTransaction, Filter, FloatExchangeAmount, TransactionDetail } from './types';
 export declare class Changelly {
     readonly uri: string;
     private readonly apiKey;
@@ -64,7 +64,7 @@ export declare class Changelly {
     /**
      * Returns an array of all transactions or a filtered list of transactions
      */
-    getTransactions(filter: Filter): Promise<any>;
+    getTransactions(filter: Filter): Promise<Array<TransactionDetail>>;
     /**
      * Sign params and post to Changelly server
      */
