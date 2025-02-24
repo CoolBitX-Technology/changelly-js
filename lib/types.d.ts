@@ -110,6 +110,7 @@ export type TransactionDetail = {
     currencyFrom: string;
     currencyTo: string;
     payinHash: string;
+    payinConfirmations: number;
     payoutHash: string;
     refundHash: string | null;
     payinAddress: string;
@@ -120,6 +121,7 @@ export type TransactionDetail = {
     amountExpectedTo: string;
     amountFrom: string;
     amountTo: string;
+    apiExtraFee: string;
     refundReason: string | null;
     networkFee: string;
     createdAt: number;
